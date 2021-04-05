@@ -87,6 +87,7 @@ const OptionLineOne = styled.div``
 
 const HeaderOptionAddress = styled.div`
   padding: 1px 6px;
+  margin-right: 6px;
   display: flex;
   align-items: center;
 
@@ -111,7 +112,7 @@ const OptionLineTwo = styled.div`
 const HeaderSearch = styled.div`
   display: flex;
   flex-grow: 1;
-  height: 45px;
+  height: 40px;
   border-radius: 6px;
   margin: 9px;
   overflow: hidden;
@@ -125,8 +126,9 @@ const HeaderSearch = styled.div`
 
 const HeaderSearchInput = styled.input`
   flex-grow: 1;
+  font-size: 16px;
   border: 0px;
-
+  padding-left: 10px;
   :focus {
     outline: none;
   }
