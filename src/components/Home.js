@@ -19,6 +19,7 @@ const Banner = styled.div`
   min-height: 600px;
   background-position: center;
   background-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 `
 
 const Content = styled.div``
