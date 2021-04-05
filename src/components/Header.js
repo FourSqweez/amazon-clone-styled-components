@@ -2,12 +2,15 @@ import styled from 'styled-components'
 import Search from '@material-ui/icons/Search'
 import Cart from '@material-ui/icons/AddShoppingCartOutlined'
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
+import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <HeaderContainer>
-      <HeaderLogo>
-        <img src="https://i.imgur.com/7I9Was5.png" alt="amazonLogo" />
-      </HeaderLogo>
+      <Link to="/">
+        <HeaderLogo>
+          <img src="https://i.imgur.com/7I9Was5.png" alt="amazonLogo" />
+        </HeaderLogo>
+      </Link>
       <HeaderOptionAddress>
         <LocationOnOutlinedIcon />
         <HeaderOption>
@@ -35,8 +38,10 @@ const Header = () => {
         </HeaderOption>
 
         <HeaderOptionCart>
-          <CartIcon />
-          <CartCount>4</CartCount>
+          <Link to="/cart">
+            <CartIcon />
+            <CartCount>4</CartCount>
+          </Link>
         </HeaderOptionCart>
       </HeaderNavItems>
     </HeaderContainer>
@@ -151,6 +156,12 @@ const HeaderOptionCart = styled.div`
   align-items: center;
   padding: 9px;
   cursor: pointer;
+
+  a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+  }
 
   :hover {
     border: 1px solid white;
