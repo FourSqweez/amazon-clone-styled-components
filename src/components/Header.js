@@ -63,6 +63,7 @@ const HeaderLogo = styled.div`
   display: flex;
   align-items: center;
   padding: 9px;
+  margin: 0px 6px 0px 6px;
   cursor: pointer;
   img {
     width: 90px;
@@ -70,7 +71,7 @@ const HeaderLogo = styled.div`
   }
 
   :hover {
-    border: 1px solid white;
+    box-shadow: 0 0 0 1px white;
   }
 `
 
@@ -79,7 +80,7 @@ const HeaderOption = styled.div`
   cursor: pointer;
 
   :hover {
-    border: 1px solid white;
+    box-shadow: 0 0 0 1px white;
   }
 `
 const OptionLineOne = styled.div``
@@ -95,11 +96,11 @@ const HeaderOptionAddress = styled.div`
 
   ${HeaderOption} {
     :hover {
-      border: none;
+      box-shadow: none;
     }
   }
   :hover {
-    border: 1px solid white;
+    box-shadow: 0 0 0 1px white;
   }
 `
 
@@ -164,7 +165,7 @@ const HeaderOptionCart = styled.div`
   }
 
   :hover {
-    border: 1px solid white;
+    box-shadow: 0 0 0 1px white;
   }
 `
 
