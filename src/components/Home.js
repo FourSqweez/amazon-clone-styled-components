@@ -1,20 +1,45 @@
 import styled from 'styled-components'
 import Product from './Product'
 
+import { db } from '../firebase'
+import { useState } from 'react'
+import { useEffect } from 'react'
+
 const Home = () => {
+  const [products, setProducts] = useState([])
+
+  const getProducts = () => {
+    db.collection('products').onSnapshot((snapshot) => {
+      let tempProducts = []
+
+      tempProducts = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        product: doc.data(),
+      }))
+
+      setProducts(tempProducts)
+    })
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
   return (
     <Container>
       <Banner></Banner>
 
       <Content>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {products &&
+          products.map((data) => (
+            <Product
+              key={data.id}
+              title={data.product.name}
+              price={data.product.price}
+              rating={data.product.rating}
+              image={data.product.image}
+              id={data.id}
+            />
+          ))}
       </Content>
     </Container>
   )

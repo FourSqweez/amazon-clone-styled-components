@@ -1,16 +1,29 @@
 import styled from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
 
-const Product = () => {
+const Product = (props) => {
   return (
     <Container>
-      <Title>Ipad Pro</Title>
-      <Price>$1449</Price>
-      <Rating>⭐⭐⭐⭐⭐</Rating>
-      <Image src="https://m.media-amazon.com/images/I/815ztYEEwYL._AC_UL480_FMwebp_QL65_.jpg" />
+      {props && (
+        <>
+          <Title>{props.title}</Title>
+          <Price>${props.price}</Price>
+          <Rating>
+            {Array(props.rating)
+              .fill()
+              .map(() => (
+                <>
+                  <p key={uuidv4()}>⭐</p>
+                </>
+              ))}
+          </Rating>
+          <Image src={props.image} />
 
-      <ActionSection>
-        <AddToCartButton>Add to Cart</AddToCartButton>
-      </ActionSection>
+          <ActionSection>
+            <AddToCartButton>Add to Cart</AddToCartButton>
+          </ActionSection>
+        </>
+      )}
     </Container>
   )
 }
@@ -19,7 +32,7 @@ export default Product
 
 const Container = styled.div`
   background-color: white;
-  height: 350px;
+  height: 450px;
   z-index: 100;
   flex: none;
   padding: 20px;
@@ -38,7 +51,9 @@ const Price = styled.div`
   margin-top: 3px;
 `
 
-const Rating = styled.div``
+const Rating = styled.div`
+  display: flex;
+`
 
 const Image = styled.img`
   max-height: 200px;
