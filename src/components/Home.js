@@ -9,6 +9,12 @@ const Home = () => {
       <Content>
         <Product />
         <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
       </Content>
     </Container>
   )
@@ -36,4 +42,7 @@ const Content = styled.div`
   z-index: 2;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  box-sizing: border-box;
 `

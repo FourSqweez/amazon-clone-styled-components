@@ -19,20 +19,21 @@ export default Product
 
 const Container = styled.div`
   background-color: white;
-  height: 300px;
+  height: 350px;
   z-index: 100;
-  flex: 1;
+  flex: none;
   padding: 20px;
   margin: 10px;
-  max-height: 400px;
   max-width: 400px;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
+  width: 33.33%;
 `
 
-const Title = styled.span``
+const Title = styled.div``
 
-const Price = styled.span`
+const Price = styled.div`
   font-weight: 500;
   margin-top: 3px;
 `
