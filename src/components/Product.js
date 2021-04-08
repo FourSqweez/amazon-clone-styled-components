@@ -12,9 +12,7 @@ const Product = (props) => {
             {Array(props.rating)
               .fill()
               .map(() => (
-                <>
-                  <p key={uuidv4()}>⭐</p>
-                </>
+                <p key={uuidv4()}>⭐</p>
               ))}
           </Rating>
           <Image src={props.image} />
