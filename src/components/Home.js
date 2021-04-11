@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import Product from './Product'
 
 import { db } from '../firebase'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState,useEffect } from 'react'
 
 const Home = () => {
   const [products, setProducts] = useState([])

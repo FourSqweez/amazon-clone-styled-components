@@ -174,4 +174,6 @@ const HeaderOptionCart = styled.div`
 const CartIcon = styled(Cart)``
 const CartCount = styled.div`
   padding-left: 9px;
+  font-weight: 700;
+  color: #f08804;
 `
