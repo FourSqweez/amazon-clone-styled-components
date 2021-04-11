@@ -1,7 +1,26 @@
 import styled from 'styled-components'
 import { v4 as uuidV4 } from 'uuid'
+import { db } from '../firebase'
 
 const Product = (props) => {
+  const addToCart = () => {
+    const cartItem = db.collection('cartItems').doc(props.id)
+    cartItem.get().then((doc) => {
+      console.log(doc)
+      if (doc.exists) {
+        cartItem.update({
+          quantity: doc.data().quantity + 1,
+        })
+      } else {
+        db.collection('cartItems').doc(props.id).set({
+          name: props.title,
+          image: props.image,
+          price: props.price,
+          quantity: 1,
+        })
+      }
+    })
+  }
   return (
     <Container>
       {props && (
@@ -18,7 +37,7 @@ const Product = (props) => {
           <Image src={props.image} />
 
           <ActionSection>
-            <AddToCartButton>Add to Cart</AddToCartButton>
+            <AddToCartButton onClick={addToCart}>Add to Cart</AddToCartButton>
           </ActionSection>
         </>
       )}
@@ -68,4 +87,5 @@ const AddToCartButton = styled.button`
   background-color: #f0c14b;
   border: 2px solid #a88734;
   border-radius: 20px;
+  cursor: pointer;
 `
