@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CartItem from './CartItem'
+import { v4 as uuidV4 } from 'uuid'
 
 const CartItems = ({ cartItems }) => {
   return (
@@ -9,7 +10,7 @@ const CartItems = ({ cartItems }) => {
       <hr />
       <ItemsContainer>
         {cartItems.map((item) => (
-          <CartItem item={item.product} id={item.id} />
+          <CartItem item={item.product} id={item.id} key={uuidV4()} />
         ))}
       </ItemsContainer>
     </Container>
@@ -30,6 +31,4 @@ const Title = styled.h1`
   margin-bottom: 8px;
 `
 
-const ItemsContainer = styled.div`
-
-`
+const ItemsContainer = styled.div``

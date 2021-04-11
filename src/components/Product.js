@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidV4 } from 'uuid'
 
 const Product = (props) => {
   return (
@@ -12,7 +12,7 @@ const Product = (props) => {
             {Array(props.rating)
               .fill()
               .map(() => (
-                <p key={uuidv4()}>⭐</p>
+                <p key={uuidV4()}>⭐</p>
               ))}
           </Rating>
           <Image src={props.image} />

@@ -1,5 +1,5 @@
 import './App.css'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Cart from './components/cart/Cart'
 import Header from './components/Header'
 import Home from './components/Home'
@@ -23,8 +23,6 @@ function App() {
     getCartItems()
   }, [])
 
-  console.log(cartItems)
-
   return (
     <Router>
       <div className="App">
@@ -35,7 +33,7 @@ function App() {
           </Route>
 
           <Route path="/cart">
-            <Cart cartItems={cartItems}/>
+            <Cart cartItems={cartItems} />
           </Route>
         </Switch>
       </div>
