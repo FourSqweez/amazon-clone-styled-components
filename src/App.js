@@ -8,7 +8,7 @@ import { auth, db } from './firebase'
 import Login from './components/Login'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
   const [cartItems, setCartItem] = useState([])
 
   const getCartItems = () => {
@@ -23,6 +23,7 @@ function App() {
 
   const signOut = () => {
     auth.signOut().then(() => {
+      localStorage.removeItem('user')
       setUser(null)
     })
   }
