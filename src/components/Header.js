@@ -4,7 +4,7 @@ import Cart from '@material-ui/icons/AddShoppingCartOutlined'
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
 import { Link } from 'react-router-dom'
 
-const Header = ({ cartItems }) => {
+const Header = ({ cartItems, user, signOut }) => {
   const getCount = () => {
     let count = 0
     //* loop through all cart items
@@ -39,8 +39,8 @@ const Header = ({ cartItems }) => {
       </HeaderSearch>
 
       <HeaderNavItems>
-        <HeaderOption>
-          <OptionLineOne>Hello, Nazariy</OptionLineOne>
+        <HeaderOption onClick={signOut}>
+          <OptionLineOne>Hello,{user.name}</OptionLineOne>
           <OptionLineTwo>Account & Lists</OptionLineTwo>
         </HeaderOption>
 
