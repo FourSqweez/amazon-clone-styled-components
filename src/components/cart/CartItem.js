@@ -1,9 +1,23 @@
 import styled from 'styled-components'
+import { db } from '../../firebase'
+import { v4 as uuidV4 } from 'uuid'
 
 const CartItem = ({ id, item }) => {
   let options = []
   for (let i = 1; i < Math.max(item.quantity + 1, 20); i++) {
-    options.push(<option value={i}> Qty: {i}</option>)
+    options.push(
+      <option value={i} key={uuidV4()}>
+        Qty: {i}
+      </option>
+    )
+  }
+
+  const changeQuantity = (newQuantity) => {
+    db.collection('cartItems')
+      .doc(id)
+      .update({
+        quantity: parseInt(newQuantity),
+      })
   }
 
   return (
@@ -19,7 +33,12 @@ const CartItem = ({ id, item }) => {
 
         <CartItemInfoBottom>
           <CartItemQuantityContainer>
-            <select value={item.quantity}>{options}</select>
+            <select
+              value={item.quantity}
+              onChange={(e) => changeQuantity(e.target.value)}
+            >
+              {options}
+            </select>
           </CartItemQuantityContainer>
           <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
         </CartItemInfoBottom>
