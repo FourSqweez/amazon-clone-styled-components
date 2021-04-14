@@ -25,7 +25,7 @@ const Cart = ({ cartItems }) => {
   return (
     <Container>
       <CartItems cartItems={cartItems} />
-      <CartTotal getCount={getCount} getTotalPrice={getTotalPrice}/>
+      <CartTotal getCount={getCount} getTotalPrice={getTotalPrice} />
     </Container>
   )
 }
